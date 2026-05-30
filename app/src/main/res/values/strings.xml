@@ -1,3 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cash Tracker</string>
+
+    <!-- Splash -->
+    <string name="splash_tagline">Take control of your finances</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Track Expenses Easily</string>
+    <string name="onboarding_desc_1">Monitor your daily spending and keep every transaction organized in one place.</string>
+    <string name="onboarding_title_2">Analyze Spending Habits</string>
+    <string name="onboarding_desc_2">Visualize your expenses with beautiful charts and understand where your money goes.</string>
+    <string name="onboarding_title_3">Set Monthly Budgets</string>
+    <string name="onboarding_desc_3">Create custom budgets for each category and stay on top of your financial goals.</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Get Started</string>
 </resources>

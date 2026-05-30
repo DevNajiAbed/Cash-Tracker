@@ -12,10 +12,26 @@ import com.naji.cashtracker.R
 
 @OptIn(ExperimentalTextApi::class)
 val InterFont = FontFamily(
-    Font(R.font.inter_variable, weight = FontWeight.Normal, variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 400f))),
-    Font(R.font.inter_variable, weight = FontWeight.Medium, variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 500f))),
-    Font(R.font.inter_variable, weight = FontWeight.SemiBold, variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 600f))),
-    Font(R.font.inter_variable, weight = FontWeight.Bold, variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 700f)))
+    Font(
+        R.font.inter_variable,
+        weight = FontWeight.Normal,
+        variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 400f))
+    ),
+    Font(
+        R.font.inter_variable,
+        weight = FontWeight.Medium,
+        variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 500f))
+    ),
+    Font(
+        R.font.inter_variable,
+        weight = FontWeight.SemiBold,
+        variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 600f))
+    ),
+    Font(
+        R.font.inter_variable,
+        weight = FontWeight.Bold,
+        variationSettings = FontVariation.Settings(FontVariation.Setting("wght", 700f))
+    )
 )
 
 val CashTrackerTypography = Typography(

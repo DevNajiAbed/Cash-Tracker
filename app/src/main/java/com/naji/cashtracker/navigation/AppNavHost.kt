@@ -27,7 +27,10 @@ fun AppNavHost(
         modifier = modifier
     ) {
         splashGraph(navController = navController)
-        onboardingGraph(navController = navController)
+        onboardingGraph(
+            navController = navController,
+            onComplete = { navController.navigate(RegisterRoute) }
+        )
         registerGraph(navController = navController)
         dashboardGraph(
             navController = navController,

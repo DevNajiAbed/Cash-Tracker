@@ -18,16 +18,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.sp
+import com.naji.cashtracker.R
 import com.naji.cashtracker.core.presentation.ObserveAsEvents
 import com.naji.cashtracker.ui.theme.CashTrackerTheme
 import com.naji.cashtracker.ui.theme.DarkPrimary
 import com.naji.cashtracker.ui.theme.InterFont
 import com.naji.cashtracker.ui.theme.LightPrimary
 import org.koin.androidx.compose.koinViewModel
-import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.Module
 import org.koin.dsl.module
+import org.koin.core.module.dsl.*
 
 @Composable
 fun SplashRoot(
@@ -84,8 +87,9 @@ fun SplashScreen() {
             )
 
             Text(
-                text = "Take control of your finances",
+                text = stringResource(R.string.splash_tagline),
                 style = MaterialTheme.typography.bodyLarge,
+                fontStyle = FontStyle.Italic,
                 color = Color.White.copy(alpha = 0.7f)
             )
         }

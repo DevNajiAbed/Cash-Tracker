@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cash Tracker</string>
+
+    <!-- Splash -->
+    <string name="splash_tagline">تحكم بأموالك بسهولة</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">تتبع المصروفات بسهولة</string>
+    <string name="onboarding_desc_1">راقب إنفاقك اليومي وحافظ على تنظيم جميع معاملاتك في مكان واحد.</string>
+    <string name="onboarding_title_2">حلل عادات الإنفاق</string>
+    <string name="onboarding_desc_2">تصور مصروفاتك برسوم بيانية جميلة وافهم أين تذهب أموالك.</string>
+    <string name="onboarding_title_3">حدد ميزانيات شهرية</string>
+    <string name="onboarding_desc_3">أنشئ ميزانيات مخصصة لكل فئة والتزم بأهدافك المالية.</string>
+    <string name="onboarding_skip">تخطي</string>
+    <string name="onboarding_next">التالي</string>
+    <string name="onboarding_get_started">ابدأ الآن</string>
+</resources>
