@@ -33,3 +33,5 @@ __pycache__/
 *.swp
 *.swo
 *~
+/specs/
+/AGENTS.md
