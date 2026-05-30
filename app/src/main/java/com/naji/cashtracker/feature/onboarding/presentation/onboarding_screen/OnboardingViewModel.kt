@@ -2,9 +2,7 @@ package com.naji.cashtracker.feature.onboarding.presentation.onboarding_screen
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 class OnboardingViewModel : ViewModel() {
 
