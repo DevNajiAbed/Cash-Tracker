@@ -32,6 +32,5 @@ __pycache__/
 .idea/vcs.xml
 *.swp
 *.swo
-*~
 /specs/
-/AGENTS.md
+*~
