@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.bundles.room)
     implementation(libs.bundles.navigation)
     implementation(libs.bundles.serialization)
+    implementation(libs.bundles.datastore)
     implementation(libs.bundles.vico)
     implementation(libs.bundles.coil)
 
