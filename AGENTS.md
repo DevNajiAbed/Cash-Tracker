@@ -825,18 +825,113 @@ git push -u origin feature/<name>
 
 ## Implementation Order
 
-Build features in this order (per spec):
+Build features in this order (per spec). Each feature must be fully implemented before moving to the next ΓÇö no parallel feature work.
 
-1. **Splash** ΓÇö logo, auto-navigate based on first-launch flag
-2. **Onboarding** ΓÇö 3 paginated steps (Track Expenses / Analyze / Set Budgets)
-3. **Auth** ΓÇö Register (name, email, password, "Get Started" button)
-4. **Dashboard** ΓÇö balance card, quick stats, recent transactions, nav cards (Categories, Budgets)
-5. **Transaction** ΓÇö List screen, then Add/Edit screen (income & expense variants, amount, category, note, date, delete)
-6. **Analytics** ΓÇö pie chart (by category), bar chart (monthly), insights
-7. **Category** ΓÇö List screen, then Add/Edit screen (name, color picker, icon picker)
-8. **Budget** ΓÇö List screen, then Add/Edit screen (amount input, category picker, month picker, optional note)
-9. **Settings** ΓÇö dark mode toggle, currency, language, logout
-10. **Profile** ΓÇö View screen, then Edit screen (name, email, phone, bio, photo)
+### Implementation status
+
+| # | Feature | Status | Depends on |
+|---|---------|--------|-----------|
+| 1 | **Splash** | ❌ Not started | `UserPreferences` (done) |
+| 2 | **Onboarding** | ❌ Not started | Splash |
+| 3 | **Auth** (Register) | ❌ Not started | Onboarding |
+| 4 | **Dashboard** | ❌ Not started | Auth, Room DB |
+| 5 | **Transaction** (List + Add/Edit) | ❌ Not started | Dashboard |
+| 6 | **Analytics** | ❌ Not started | Transactions |
+| 7 | **Category** (List + Add/Edit) | ❌ Not started | Dashboard |
+| 8 | **Budget** (List + Add/Edit) | ❌ Not started | Dashboard, Categories |
+| 9 | **Settings** | ❌ Not started | Auth |
+| 10 | **Profile** (View + Edit) | ❌ Not started | Auth |
+
+### Per-feature breakdown
+
+#### 1. Splash
+- [ ] `SplashViewModel` ΓÇö check `isFirstLaunch` from `UserPreferences`, navigate accordingly
+- [ ] `SplashState`, `SplashAction`, `SplashEvent`
+- [ ] `SplashRoot` + `SplashScreen` ΓÇö branded logo splash, auto-navigate after delay
+- [ ] `splashPresentationModule` in Koin
+
+#### 2. Onboarding
+- [ ] `OnboardingViewModel` ΓÇö track current page (1/3), handle completion
+- [ ] `OnboardingState`, `OnboardingAction`, `OnboardingEvent`
+- [ ] `OnboardingRoot` + `OnboardingScreen` ΓÇö 3 paginated steps (Track Expenses / Analyze / Set Budgets)
+- [ ] Page indicator dots, ΓÇ£SkipΓÇ¥ and ΓÇ£NextΓÇ¥ / ΓÇ£Get StartedΓÇ¥ buttons
+- [ ] `onboardingPresentationModule` in Koin
+
+#### 3. Auth
+- [ ] `User` domain model (name, email, password hash, id)
+- [ ] `AuthError` error types
+- [ ] `AuthDataSource` + `AuthRepository`
+- [ ] `RegisterViewModel` ΓÇö name, email, password fields with validation
+- [ ] `RegisterState`, `RegisterAction`, `RegisterEvent`
+- [ ] `RegisterRoot` + `RegisterScreen` ΓÇö register form
+- [ ] `authDataModule`, `authDomainModule`, `authPresentationModule` in Koin
+
+#### 4. Dashboard
+- [ ] `Transaction` domain model (id, amount, type, category, note, date)
+- [ ] `TransactionEntity`, `TransactionDao`, `AppDatabase`
+- [ ] `TransactionLocalDataSource` + `TransactionRepository`
+- [ ] `HomeViewModel` ΓÇö load balance, recent transactions, stats
+- [ ] `HomeState`, `HomeAction`, `HomeEvent`
+- [ ] `HomeRoot` + `HomeScreen` ΓÇö balance card, quick stats, recent txs, nav cards (Categories, Budgets)
+- [ ] `dashboardDataModule`, `dashboardDomainModule`, `dashboardPresentationModule` in Koin
+
+#### 5. Transaction
+- [ ] `TransactionListViewModel` ΓÇö filterable list (income/expense/all)
+- [ ] `TransactionListState`, `TransactionListAction`, `TransactionListEvent`
+- [ ] `TransactionListRoot` + `TransactionListScreen` ΓÇö list with FAB
+- [ ] `TransactionAddEditViewModel` ΓÇö form with `SavedStateHandle` for process death
+- [ ] `TransactionAddEditState`, `TransactionAddEditAction`, `TransactionAddEditEvent`
+- [ ] `TransactionAddEditRoot` + `TransactionAddEditScreen` ΓÇö income/expense form (amount, category, note, date, delete)
+- [ ] `transactionDataModule`, `transactionDomainModule`, `transactionPresentationModule` in Koin
+
+#### 6. Analytics
+- [ ] `AnalyticsSummary`, `ChartData` domain models
+- [ ] `AnalyticsRepository`
+- [ ] `AnalyticsViewModel` ΓÇö load chart data
+- [ ] `AnalyticsState`, `AnalyticsAction`, `AnalyticsEvent`
+- [ ] `AnalyticsRoot` + `AnalyticsScreen` ΓÇö pie chart (by category), bar chart (monthly), insights
+- [ ] `analyticsDataModule`, `analyticsDomainModule`, `analyticsPresentationModule` in Koin
+
+#### 7. Category
+- [ ] `Category` domain model (id, name, color, icon)
+- [ ] `CategoryEntity`, `CategoryDao`
+- [ ] `CategoryLocalDataSource` + `CategoryRepository`
+- [ ] `CategoryListViewModel`
+- [ ] `CategoryListState`, `CategoryListAction`, `CategoryListEvent`
+- [ ] `CategoryListRoot` + `CategoryListScreen`
+- [ ] `CategoryAddEditViewModel` ΓÇö form with name, color picker (8 colors), icon picker (4-col grid)
+- [ ] `CategoryAddEditState`, `CategoryAddEditAction`, `CategoryAddEditEvent`
+- [ ] `CategoryAddEditRoot` + `CategoryAddEditScreen`
+- [ ] `categoryDataModule`, `categoryDomainModule`, `categoryPresentationModule` in Koin
+
+#### 8. Budget
+- [ ] `Budget` domain model (id, amount, categoryId, month, note)
+- [ ] `BudgetEntity`, `BudgetDao`
+- [ ] `BudgetLocalDataSource` + `BudgetRepository`
+- [ ] `BudgetListViewModel` ΓÇö list with progress bars
+- [ ] `BudgetListState`, `BudgetListAction`, `BudgetListEvent`
+- [ ] `BudgetListRoot` + `BudgetListScreen`
+- [ ] `BudgetAddEditViewModel` ΓÇö form with amount, category picker, month picker, note
+- [ ] `BudgetAddEditState`, `BudgetAddEditAction`, `BudgetAddEditEvent`
+- [ ] `BudgetAddEditRoot` + `BudgetAddEditScreen`
+- [ ] `budgetDataModule`, `budgetDomainModule`, `budgetPresentationModule` in Koin
+
+#### 9. Settings
+- [ ] `SettingsViewModel` ΓÇö dark mode toggle, currency, language, logout
+- [ ] `SettingsState`, `SettingsAction`, `SettingsEvent`
+- [ ] `SettingsRoot` + `SettingsScreen` ΓÇö preference toggles
+- [ ] `settingsPresentationModule` in Koin
+
+#### 10. Profile
+- [ ] `UserProfile` domain model (name, email, phone, bio, photoUri)
+- [ ] `ProfileRepository`
+- [ ] `ProfileViewModel` ΓÇö view profile
+- [ ] `ProfileState`, `ProfileAction`, `ProfileEvent`
+- [ ] `ProfileRoot` + `ProfileScreen` ΓÇö display name, email, phone, bio, photo
+- [ ] `ProfileEditViewModel` ΓÇö edit all fields
+- [ ] `ProfileEditState`, `ProfileEditAction`, `ProfileEditEvent`
+- [ ] `ProfileEditRoot` + `ProfileEditScreen`
+- [ ] `profileDataModule`, `profileDomainModule`, `profilePresentationModule` in Koin
 
 ---
 

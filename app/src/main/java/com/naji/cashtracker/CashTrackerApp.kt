@@ -2,6 +2,7 @@ package com.naji.cashtracker
 
 import android.app.Application
 import com.naji.cashtracker.core.data.coreDataModule
+import com.naji.cashtracker.feature.splash.presentation.splash_screen.splashPresentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -12,6 +13,7 @@ class CashTrackerApp : Application() {
             androidContext(this@CashTrackerApp)
             modules(
                 coreDataModule,
+                splashPresentationModule,
             )
         }
     }
