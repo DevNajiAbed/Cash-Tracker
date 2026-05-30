@@ -8,7 +8,7 @@ This is a **design specification** for the **Cash Track** Android expense-tracki
 
 | File | Purpose |
 |---|---|
-| `specs/cashtrack_portfolio_spec.md` | Full app specification (design system, 15 screens, features, tech stack) |
+| `specs/cashtrack_portfolio_spec.md` | Full app specification (design system, 17 screens, features, tech stack) |
 | `index.html` | Visual spec page — single-file HTML that renders the spec as a design reference |
 | `AGENTS.md` | This file |
 | Font setup notes | Typography section in both files now includes implementation instructions for adding Inter/Poppins to the Android project via downloadable Google Fonts |
@@ -21,7 +21,7 @@ Self-contained HTML page (zero dependencies, just a Google Fonts link). Open in 
 - **Color scheme** organized by **Material3 color roles** (Primary, On Primary, Primary Container, Secondary, Tertiary, Error, Surface, Outline, etc.) — each role shows light and dark values side by side with swatches
 - **Typography** mapped to the **Material3 type scale** (Display Small, Headline Large, Title Large, Body Large, Label Medium, etc.) with spec sizes
 - **UI components** section with visual mockups of buttons, cards, chips, inputs, and charts at spec dimensions
-- **16 phone mockups** — each screen rendered inside a phone frame (340x690px, notch, status bar): Splash, Onboarding (3 steps), Register, Home Dashboard, Add Transaction (Income + Expense), Transactions List, Analytics, Categories, Add Category, Budgets, Settings, Profile/About, Edit Profile
+- **17 phone mockups** — each screen rendered inside a phone frame (340x690px, notch, status bar): Splash, Onboarding (3 steps), Register, Home Dashboard, Add Transaction (Income + Expense), Transactions List, Analytics, Categories, Add Category, Budgets, Add Budget, Settings, Profile/About, Edit Profile
 - **Bottom navigation bar** — 4-tab nav (Home, Transactions, Analytics, Settings) on Dashboard, Transactions List, Analytics, and Settings mockups; the active tab is highlighted per screen
 - **Navigation Flow section** — diagram showing the complete screen-to-screen navigation map with branches for first launch vs returning user, sub-screens organized by parent tab
 - **Dashboard nav cards** — Categories and Budgets cards replaced the "Monthly Spending" chart on the Home Dashboard, linking to those sub-screens
@@ -55,4 +55,4 @@ Self-contained HTML page (zero dependencies, just a Google Fonts link). Open in 
 ## When building Cash Track from this spec
 
 Create a new Android project and implement the screens in order:
-Splash → Onboarding (3 steps) → Register → Home Dashboard → Add Transaction (Income + Expense) → Transactions List → Analytics → Categories → Add Category → Budgets → Settings → Profile/About → Edit Profile
+Splash → Onboarding (3 steps) → Register → Home Dashboard → Add Transaction (Income + Expense) → Transactions List → Analytics → Categories → Add Category → Budgets → Add Budget → Settings → Profile/About → Edit Profile

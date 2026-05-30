@@ -181,6 +181,10 @@ com.naji.cashtracker
 │   │   ├── data/
 │   │   ├── domain/
 │   │   └── presentation/
+│   ├── addbudget/
+│   │   ├── data/
+│   │   ├── domain/
+│   │   └── presentation/
 │   ├── settings/
 │   │   └── presentation/
 │   └── profile/
@@ -395,6 +399,7 @@ Follow the **android-navigation** skill for all navigation setup.
 @Serializable object CategoriesRoute
 @Serializable object AddCategoryRoute
 @Serializable object BudgetsRoute
+@Serializable object AddBudgetRoute
 @Serializable object SettingsRoute
 @Serializable object ProfileRoute
 @Serializable object EditProfileRoute
@@ -422,6 +427,7 @@ SPLASH
     → ADD TX ↩ HOME       → PROFILE / ABOUT
     → CATEGORIES ↩ HOME      → EDIT PROFILE ↩ PROFILE
     → BUDGETS ↩ HOME
+    → ADD BUDGET ↩ BUDGETS
 ```
 
 ### Feature nav graph
@@ -444,6 +450,18 @@ fun NavGraphBuilder.homeGraph(
         }
     }
 }
+
+// feature:budgets:presentation
+fun NavGraphBuilder.budgetsGraph(
+    navController: NavController,
+    onNavigateToAddBudget: () -> Unit
+) {
+    navigation<BudgetsRoute>(startDestination = BudgetsRoute) {
+        composable<BudgetsRoute> {
+            BudgetsRoot(onNavigateToAddBudget = onNavigateToAddBudget)
+        }
+    }
+}
 ```
 
 ### Wiring in `:app`
@@ -459,7 +477,8 @@ NavHost(navController, startDestination = SplashRoute) {
     analyticsGraph(navController)
     categoriesGraph(navController)
     addCategoryGraph(navController)
-    budgetsGraph(navController)
+    budgetsGraph(navController, onNavigateToAddBudget = { navController.navigate(AddBudgetRoute) })
+    addBudgetGraph(navController)
     settingsGraph(navController, onNavigateToProfile = { navController.navigate(ProfileRoute) })
     profileGraph(navController)
     editProfileGraph(navController)
@@ -702,6 +721,73 @@ class HomeViewModelTest {
 
 ---
 
+## Git Workflow
+
+### Branch strategy
+
+```
+main  ──── M0 ──●──●──●────●────●────●────●
+                \         /   /
+feature/onboarding   features/   fix/
+```
+
+| Branch | Purpose |
+|---|---|
+| `main` | Production-ready — linear history via squash merges only, never commit directly |
+| `feature/<name>` | One per spec item (e.g. `feature/splash`, `feature/home`, `feature/budgets`) |
+| `fix/<name>` | Bug fixes |
+
+### Commit convention: Conventional Commits
+
+```
+<type>(<scope>): <short description>
+```
+
+| Type | When |
+|---|---|
+| `feat` | New feature screen or capability |
+| `fix` | Bug fix |
+| `refactor` | Code change with no behavior change |
+| `style` | Formatting, theming, design tokens |
+| `docs` | AGENTS.md, spec notes |
+| `chore` | Gradle, deps, build config |
+| `test` | Adding/fixing tests |
+
+**Examples:** `feat(splash): add splash screen with auto-nav`, `style(theme): apply Material3 color palette per spec`, `chore(deps): add Room and Koin dependencies`
+
+### Standard workflow
+
+```bash
+# 1. Start from latest main
+git checkout main && git pull
+
+# 2. Create feature branch
+git checkout -b feature/<name>
+
+# 3. Work and commit frequently
+git add -A && git commit -m "<type>(<scope>): <message>"
+
+# 4. Before PR — rebase onto latest main
+git fetch origin && git rebase origin/main
+
+# 5. Push and open PR
+git push -u origin feature/<name>
+
+# 6. Squash-merge to main via GitHub
+# 7. Delete the feature branch
+```
+
+### Rules
+
+- **Never commit directly to `main`** — always use feature branches + PRs
+- **Rebase, don't merge** — rebase feature branches onto latest `main` before PR to keep history linear
+- **Squash-merge PRs** — one atomic commit per feature on `main`
+- **No force-push** to `main` or shared branches (OK on feature branches before PR)
+- **Auto-staging:** `git add -A` before each commit unless selective staging is needed
+- **Inspect before PR:** always check `git status`, `git diff`, `git log --oneline -10` before pushing
+
+---
+
 ## Implementation Order
 
 Build screens in this order (per spec):
@@ -716,9 +802,10 @@ Build screens in this order (per spec):
 8. **Categories** — grid with category icons + transaction counts
 9. **Add Category** — name, color picker (8 colors), icon picker
 10. **Budgets** — monthly cap + per-category progress bars
-11. **Settings** — dark mode toggle, currency, language, logout
-12. **Profile / About** — avatar, stats, bio
-13. **Edit Profile** — name, email, phone, bio, photo
+11. **Add Budget** — amount input, category picker with color indicators, month picker, optional note
+12. **Settings** — dark mode toggle, currency, language, logout
+13. **Profile / About** — avatar, stats, bio
+14. **Edit Profile** — name, email, phone, bio, photo
 
 ---
 
