@@ -1,5 +1,6 @@
 package com.naji.cashtracker.navigation
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -24,14 +25,27 @@ fun AppNavHost(
     NavHost(
         navController = navController,
         startDestination = SplashRoute,
-        modifier = modifier
+        modifier = Modifier
+            .fillMaxSize()
     ) {
-        splashGraph(navController = navController)
+        splashGraph(
+            navController = navController,
+            modifier = modifier
+        )
         onboardingGraph(
             navController = navController,
-            onComplete = { navController.navigate(RegisterRoute) }
+            onComplete = { navController.navigate(RegisterRoute) },
+            modifier = modifier
         )
-        registerGraph(navController = navController)
+        registerGraph(
+            navController = navController,
+            onNavigateToHome = {
+                navController.navigate(HomeRoute) {
+                    popUpTo(SplashRoute) { inclusive = true }
+                }
+            },
+            modifier = modifier
+        )
         dashboardGraph(
             navController = navController,
             onNavigateToAddTransaction = { navController.navigate(AddTransactionRoute) },

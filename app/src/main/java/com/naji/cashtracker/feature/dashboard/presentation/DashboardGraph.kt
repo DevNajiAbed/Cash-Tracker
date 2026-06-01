@@ -13,9 +13,7 @@ fun NavGraphBuilder.dashboardGraph(
     onNavigateToCategories: () -> Unit,
     onNavigateToBudgets: () -> Unit
 ) {
-    navigation<HomeRoute>(startDestination = HomeRoute) {
-        composable<HomeRoute> {
-            Text("Dashboard")
-        }
+    composable<HomeRoute> {
+        Text("Dashboard")
     }
 }

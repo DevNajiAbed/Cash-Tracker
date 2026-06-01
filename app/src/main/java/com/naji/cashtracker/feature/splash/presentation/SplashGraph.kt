@@ -1,5 +1,6 @@
 package com.naji.cashtracker.feature.splash.presentation
 
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -9,12 +10,14 @@ import com.naji.cashtracker.navigation.OnboardingRoute
 import com.naji.cashtracker.navigation.SplashRoute
 
 fun NavGraphBuilder.splashGraph(
-    navController: NavController
+    navController: NavController,
+    modifier: Modifier = Modifier
 ) {
     composable<SplashRoute> {
         SplashRoot(
             onNavigateToOnboarding = { navController.navigate(OnboardingRoute) },
-            onNavigateToHome = { navController.navigate(HomeRoute) }
+            onNavigateToHome = { navController.navigate(HomeRoute) },
+            modifier = modifier
         )
     }
 }

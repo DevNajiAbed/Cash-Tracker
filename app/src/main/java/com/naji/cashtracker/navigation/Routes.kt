@@ -21,13 +21,19 @@ object AddTransactionRoute
 data class EditTransactionRoute(val id: String)
 
 @Serializable
-object TransactionsListRoute
+object TransactionListRoute
+
+@Serializable
+object TransactionsRoute
 
 @Serializable
 object AnalyticsRoute
 
 @Serializable
 object CategoriesRoute
+
+@Serializable
+object CategoryListRoute
 
 @Serializable
 object AddCategoryRoute
@@ -37,6 +43,9 @@ data class EditCategoryRoute(val id: String)
 
 @Serializable
 object BudgetsRoute
+
+@Serializable
+object BudgetListRoute
 
 @Serializable
 object AddBudgetRoute

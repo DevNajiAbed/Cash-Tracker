@@ -15,4 +15,18 @@
     <string name="onboarding_skip">Skip</string>
     <string name="onboarding_next">Next</string>
     <string name="onboarding_get_started">Get Started</string>
+
+    <!-- Register -->
+    <string name="register_title">Join Cash Track</string>
+    <string name="register_subtitle">Create your account to get started</string>
+    <string name="register_add_photo">Add Photo</string>
+    <string name="register_name_label">Full Name</string>
+    <string name="register_name_placeholder">Ahmed Mohammed</string>
+    <string name="register_email_label">Email</string>
+    <string name="register_email_placeholder">ahmed@email.com</string>
+    <string name="register_phone_label">Phone</string>
+    <string name="register_phone_placeholder">+970 59 123 4567</string>
+    <string name="register_bio_label">Bio</string>
+    <string name="register_bio_placeholder">Tell us about yourself…</string>
+    <string name="register_button">Join Us</string>
 </resources>

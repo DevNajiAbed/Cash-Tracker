@@ -64,6 +64,7 @@ private val descResIds = listOf(
 @Composable
 fun OnboardingRoot(
     onComplete: () -> Unit,
+    modifier: Modifier = Modifier,
     viewModel: OnboardingViewModel = koinViewModel()
 ) {
     ObserveAsEvents(viewModel.events) { event ->
@@ -73,13 +74,15 @@ fun OnboardingRoot(
     }
 
     OnboardingScreen(
-        onAction = viewModel::onAction
+        onAction = viewModel::onAction,
+        modifier = modifier
     )
 }
 
 @Composable
 fun OnboardingScreen(
-    onAction: (OnboardingAction) -> Unit
+    onAction: (OnboardingAction) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val pagerState = rememberPagerState(pageCount = { 3 })
     val scope = rememberCoroutineScope()
@@ -87,7 +90,8 @@ fun OnboardingScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background),
+            .background(MaterialTheme.colorScheme.background)
+            .then(modifier),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         HorizontalPager(

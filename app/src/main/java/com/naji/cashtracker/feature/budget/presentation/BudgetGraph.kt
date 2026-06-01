@@ -7,6 +7,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.naji.cashtracker.navigation.AddBudgetRoute
+import com.naji.cashtracker.navigation.BudgetListRoute
 import com.naji.cashtracker.navigation.BudgetsRoute
 import com.naji.cashtracker.navigation.EditBudgetRoute
 
@@ -14,8 +15,8 @@ fun NavGraphBuilder.budgetGraph(
     navController: NavController,
     onNavigateToAddBudget: () -> Unit
 ) {
-    navigation<BudgetsRoute>(startDestination = BudgetsRoute) {
-        composable<BudgetsRoute> {
+    navigation<BudgetsRoute>(startDestination = BudgetListRoute) {
+        composable<BudgetListRoute> {
             Text("Budgets")
         }
         composable<AddBudgetRoute> {

@@ -15,4 +15,18 @@
     <string name="onboarding_skip">تخطي</string>
     <string name="onboarding_next">التالي</string>
     <string name="onboarding_get_started">ابدأ الآن</string>
+
+    <!-- Register -->
+    <string name="register_title">انضم إلى Cash Track</string>
+    <string name="register_subtitle">أنشئ حسابك لتبدأ</string>
+    <string name="register_add_photo">إضافة صورة</string>
+    <string name="register_name_label">الاسم الكامل</string>
+    <string name="register_name_placeholder">أحمد محمد</string>
+    <string name="register_email_label">البريد الإلكتروني</string>
+    <string name="register_email_placeholder">ahmed@email.com</string>
+    <string name="register_phone_label">رقم الهاتف</string>
+    <string name="register_phone_placeholder">+970 59 123 4567</string>
+    <string name="register_bio_label">نبذة عني</string>
+    <string name="register_bio_placeholder">أخبرنا عن نفسك…</string>
+    <string name="register_button">انضم إلينا</string>
 </resources>

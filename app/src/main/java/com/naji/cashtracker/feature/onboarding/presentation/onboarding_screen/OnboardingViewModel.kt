@@ -1,8 +1,10 @@
 package com.naji.cashtracker.feature.onboarding.presentation.onboarding_screen
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
 
 class OnboardingViewModel : ViewModel() {
 
@@ -12,7 +14,9 @@ class OnboardingViewModel : ViewModel() {
     fun onAction(action: OnboardingAction) {
         when (action) {
             OnboardingAction.OnComplete -> {
-                _events.tryEmit(OnboardingEvent.NavigateToRegister)
+                viewModelScope.launch {
+                    _events.emit(OnboardingEvent.NavigateToRegister)
+                }
             }
         }
     }
