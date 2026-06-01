@@ -29,4 +29,28 @@
     <string name="register_bio_label">Bio</string>
     <string name="register_bio_placeholder">Tell us about yourself…</string>
     <string name="register_button">Join Us</string>
+
+    <!-- Home -->
+    <string name="home_balance_label">Current Balance</string>
+    <string name="home_income_label">Income</string>
+    <string name="home_expenses_label">Expenses</string>
+    <string name="home_categories_label">Categories</string>
+    <string name="home_budgets_label">Budgets</string>
+    <string name="home_recent_transactions">Recent Transactions</string>
+    <string name="home_add_transaction">Add Transaction</string>
+
+    <!-- Add Transaction -->
+    <string name="add_tx_title">Add Transaction</string>
+    <string name="add_tx_income">Income</string>
+    <string name="add_tx_expense">Expense</string>
+    <string name="add_tx_category_label">Category</string>
+    <string name="add_tx_date_label">Date</string>
+    <string name="add_tx_note_label">Note</string>
+    <string name="add_tx_note_placeholder">Add a note…</string>
+    <string name="add_tx_save_button">Save Transaction</string>
+    <string name="add_tx_close_cd">Close</string>
+    <string name="add_tx_validation_error">Please enter an amount and select a category</string>
+    <string name="add_tx_saved_toast">Transaction saved!</string>
+    <string name="add_tx_date_confirm">OK</string>
+    <string name="add_tx_date_cancel">Cancel</string>
 </resources>

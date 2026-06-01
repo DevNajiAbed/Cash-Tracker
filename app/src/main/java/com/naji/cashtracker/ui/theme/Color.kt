@@ -51,3 +51,12 @@ val DarkSurfaceVariant = Color(0xFF334155)
 val DarkOnSurfaceVariant = Color(0xFFCBD5E1)
 val DarkOutline = Color(0xFF334155)
 val DarkOutlineVariant = Color(0xFF475569)
+
+val LightInfo = Color(0xFF0EA5E9)
+val DarkInfo = Color(0xFF0EA5E9)
+
+val LightHealth = Color(0xFF8B5CF6)
+val DarkHealth = Color(0xFF8B5CF6)
+
+val LightPink = Color(0xFFEC4899)
+val DarkPink = Color(0xFFEC4899)

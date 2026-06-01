@@ -29,4 +29,28 @@
     <string name="register_bio_label">نبذة عني</string>
     <string name="register_bio_placeholder">أخبرنا عن نفسك…</string>
     <string name="register_button">انضم إلينا</string>
+
+    <!-- Home -->
+    <string name="home_balance_label">الرصيد الحالي</string>
+    <string name="home_income_label">الدخل</string>
+    <string name="home_expenses_label">المصروفات</string>
+    <string name="home_categories_label">الفئات</string>
+    <string name="home_budgets_label">الميزانيات</string>
+    <string name="home_recent_transactions">آخر المعاملات</string>
+    <string name="home_add_transaction">إضافة معاملة</string>
+
+    <!-- Add Transaction -->
+    <string name="add_tx_title">إضافة معاملة</string>
+    <string name="add_tx_income">دخل</string>
+    <string name="add_tx_expense">مصروف</string>
+    <string name="add_tx_category_label">الفئة</string>
+    <string name="add_tx_date_label">التاريخ</string>
+    <string name="add_tx_note_label">ملاحظة</string>
+    <string name="add_tx_note_placeholder">أضف ملاحظة…</string>
+    <string name="add_tx_save_button">حفظ المعاملة</string>
+    <string name="add_tx_close_cd">إغلاق</string>
+    <string name="add_tx_validation_error">يرجى إدخال المبلغ واختيار الفئة</string>
+    <string name="add_tx_saved_toast">تم حفظ المعاملة!</string>
+    <string name="add_tx_date_confirm">تم</string>
+    <string name="add_tx_date_cancel">إلغاء</string>
 </resources>

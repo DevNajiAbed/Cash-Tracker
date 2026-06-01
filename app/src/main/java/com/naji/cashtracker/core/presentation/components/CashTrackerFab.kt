@@ -2,12 +2,11 @@ package com.naji.cashtracker.core.presentation.components
 
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.naji.cashtracker.ui.theme.FabShape
-import com.naji.cashtracker.ui.theme.LightOnPrimary
-import com.naji.cashtracker.ui.theme.LightPrimary
 
 @Composable
 fun CashTrackerFab(
@@ -20,8 +19,8 @@ fun CashTrackerFab(
         onClick = onClick,
         modifier = modifier,
         shape = FabShape,
-        containerColor = LightPrimary,
-        contentColor = LightOnPrimary
+        containerColor = MaterialTheme.colorScheme.primary,
+        contentColor = MaterialTheme.colorScheme.onPrimary
     ) {
         Icon(
             imageVector = icon,

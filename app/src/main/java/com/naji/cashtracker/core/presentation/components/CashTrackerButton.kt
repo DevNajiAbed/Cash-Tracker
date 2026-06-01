@@ -15,8 +15,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.naji.cashtracker.ui.theme.ButtonShape
-import com.naji.cashtracker.ui.theme.LightPrimary
-import com.naji.cashtracker.ui.theme.LightSurfaceVariant
 
 @Composable
 fun CashTrackerPrimaryButton(
@@ -64,9 +62,9 @@ fun CashTrackerSecondaryButton(
         enabled = enabled,
         shape = ButtonShape,
         colors = ButtonDefaults.outlinedButtonColors(
-            contentColor = LightPrimary
+            contentColor = MaterialTheme.colorScheme.primary
         ),
-        border = BorderStroke(2.dp, if (enabled) LightPrimary else LightSurfaceVariant),
+        border = BorderStroke(2.dp, if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant),
         contentPadding = PaddingValues(horizontal = 24.dp)
     ) {
         Text(
